@@ -12,12 +12,13 @@ body {
   font-family: "Raleway";
   background-color: hsl(0, 0%, 99.2%);
   color: var(--white);
+  
 }
 :root {
   /*colors*/
   --cyan: hsl(349, 91.6%, 62.7%); /*inside call-to-action gradient*/
   --blue-gradient: hsl(198, 60%, 50%); /*inside call-to-action gradient*/
-  --white: hsl(0, 0%, 3.5%);
+  --white: blue;
   --blue-background: hsl(0, 100%, 98%);
   --blue-footer: hsl(341.2, 100%, 96.9%);
   --blue-testimonial: hsl(53.2, 100%, 81%);
@@ -45,13 +46,17 @@ a {
   text-decoration: none;
   color: var(--white);
 }
-button {
-  background-color: var(--cyan);
-  padding: 20px;
-  border-radius: 30px;
+button, .button {
+  background-color: white;
+  padding: 10px;
+  width: 100px;
+  filter: drop-shadow(8px 8px 0px var(--white));
   color: var(--white);
   font-weight: bold;
-  border: none;
+  border: 1px solid var(--white);
+  text-transform: uppercase;
+  line-height: 1.6;
+  margin: 1rem;
 }
 
 a:hover {
@@ -71,6 +76,10 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  border-bottom: 4px dotted blue;
+  padding: 0;
+  align-items: center;
+  padding: 0 1rem;
 }
 nav ul {
   display: flex;
@@ -98,7 +107,11 @@ main p, main h1{
 }
   
 main p{
-  font-size:18px;
+  font-size: 16px;
+  text-indent: 20px;
+  text-align: left;
+  letter-spacing: 1px;
+  line-height: 1.6;
 }
 main img{
   min-width: 400px;
@@ -109,17 +122,22 @@ main img{
 .wrapper {
   display: flex;
   flex-wrap: wrap;
+  gap: .5rem;
 }
-.wrapper .flex {
-  flex: 0 1 33%;
+.flex {
+  flex: 1 1 25%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+  background-color: white;
+  filter: drop-shadow(4px 4px 0px var(--white));
+  border: 1px var(--white) solid;
+  max-width: 600px;
 }
 .flex img{
-  width:60%;
+  width:90%;
+  height: 90%;
 }
 .wrapper p {
   width: 80%;
@@ -129,26 +147,28 @@ main img{
 .card-container {
   display: flex;
 }
-.card {
-  background-color: var(--blue-testimonial);
-  padding: 20px;
-  margin: 10px;
-  filter: drop-shadow(10px 10px 0px #333333);
+
+#gallery h1{
+  text-align: center;
+  text-transform: uppercase;
+  padding: 2rem;
+  
 }
-.fig {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 0.5rem;
+.available{
+  position: relative;
 }
-.fig div>*{
-  padding: 0.1rem;
-}
-.card img {
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  margin-right: 30px;
+.available:before{
+  content: 'AVAILABLE';
+  background-color: var(--cyan);
+  border: 1px var(--white) solid;
+  filter: drop-shadow(5px 5px 0px var(--white));
+  color: white;
+  padding: .2rem;
+  float: right;
+  left: -1.5%;
+  margin-top: 0;
+  position: absolute;
+  top: -1%;
 }
 form {
   display: flex;
@@ -159,13 +179,12 @@ form {
 }
 form input, textarea {
   /*! width: 60%; */
-  border-radius: 40px;
   border: wheat;
   padding: 10px;
   width: 100%;
+  border: 1px var(--white) solid;
 }
 textarea{
-  border-radius: 20px;
    resize: none;
 }
 form button{
@@ -179,13 +198,15 @@ form button{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--blue-testimonial);
+  background-color: white;
   margin: 100px;
   margin-left: 100px;
   margin-right: 100px;
   padding: 50px;
   text-align: center;
-  border-radius: 20px;
+  border: 1px var(--white) solid;
+  /*! filter: drop-shadow(30px 10px 0px var(--white)); */
+  filter: drop-shadow(10px 10px 0px var(--white));
 }
 footer{
   background-color: var(--blue-footer); 
@@ -227,7 +248,7 @@ input{
 .social-media > * {
   width: 20px;
 }
-
+/**modal section**/
 #modal{
   position: fixed;
   background-color: rgba(1,2,3,0.2);
@@ -239,6 +260,7 @@ input{
   justify-content:center;
   display: none;
 }
+
 .flex{
   display: flex;
 }
@@ -247,6 +269,7 @@ input{
   width: 50px;
   height: 50px;
 }
+#email::b
 @media  (max-width: 900px) {
   body >* {
     display: flex;
@@ -299,9 +322,7 @@ input{
     flex-direction: column;
     
   }
-  footer{
-    
-  }
+  
   footer ul{
     margin-top: 20px;
   
